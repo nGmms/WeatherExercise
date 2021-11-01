@@ -16,5 +16,10 @@ namespace WeatherExercise
         {
             InitializeComponent();
         }
+
+        private void settingsForm_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

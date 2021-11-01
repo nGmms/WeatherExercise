@@ -75,6 +75,7 @@ namespace WeatherExercise
             this.Controls.Add(this.preferredUnitLabel);
             this.Name = "settingsForm";
             this.Text = "Settings";
+            this.Load += new System.EventHandler(this.settingsForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -39,11 +39,11 @@ namespace WeatherExercise
         {
             using (var httpClient = new HttpClient()) 
             {
-                var url = http://api.weatherapi.com/v1/current.json?key=bb36db8746ff4aa5bcc105326212510&q=Engomi&aqi=no;
+                var url = "http://api.weatherapi.com/v1/current.json?key=bb36db8746ff4aa5bcc105326212510&q=Engomi&aqi=no";
                 var response = await httpClient.GetAsync(url);
                 var contentString = await response.Content.ReadAsStringAsync();
 
-                return contentString;
+                return JsonConvert.DeserializeObject<WeatherApiResponse>(contentString);
             }
         }
 
@@ -52,10 +52,10 @@ namespace WeatherExercise
            
         }
 
-        private void searchButton_Click(object sender, EventArgs e)
+        private async void searchButton_ClickAsync(object sender, EventArgs e)
         {
             var weatherData = await GetWeatherData();
-            MessageBox.Show(weatherData);
+            MessageBox.Show(weatherData.Location.Country);
         }
     }
 }
